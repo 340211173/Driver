@@ -1,0 +1,41 @@
+Compiling d:\idgsamples\hooksys directory ********************
+'nmake.exe /c BUILDMSG=Stop. -i NTTEST= UMTEST= NOLINK=1 386=1'
+cl -nologo -Ii386\ -I. -ID:\DDK40\inc -ID:\DDK40\inc -ID:\DDK40\inc -D_X86_=1 -Di386=1  -DSTD_CALL -DCONDITION_HANDLING=1 -DNT_UP=1  -DNT_INST=0 -DWIN32=100 -D_NT1X_=100 -DWINNT=1 -D_WIN32_WINNT=0x0400    -DWIN32_LEAN_AND_MEAN=1 -DDEVL=1 -DFPO=1    -DNDEBUG -D_DLL=1 -D_IDWBUILD    /c /Zel /Zp8 /Gy -cbstring /W3 /Gz  /QIfdiv- /QIf  /Gi- /Gm- /GX- /GR- /GF   /Oxs /Oy   -FID:\DDK40\inc\warning.h  .\hooksys.c
+hooksys.c
+
+Stop. 
+Linking d:\idgsamples\hooksys directory ********************
+'nmake.exe /c BUILDMSG=Stop. -i LINKONLY=1 NOPASS0=1 NTTEST= UMTEST= 386=1'
+	link -out:..\bin\i386\free\hooksys.sys -machine:i386 @C:\TEMP\nma00171.
+Microsoft (R) Incremental Linker Version 6.00.8168
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+-MERGE:_PAGE=PAGE 
+-MERGE:_TEXT=.text 
+-SECTION:INIT,d 
+-OPT:REF 
+-INCREMENTAL:NO 
+-FORCE:MULTIPLE 
+-RELEASE 
+-FULLBUILD 
+-IGNORE:4001,4037,4039,4065,4070,4078,4087,4089,4096 
+-NODEFAULTLIB 
+-debug:notmapped,MINIMAL 
+-debugtype:coff 
+-version:4.00 
+-osversion:4.00 
+-PDB:NONE 
+-MERGE:.rdata=.text 
+-optidata 
+-driver 
+-align:0x20 
+-subsystem:native,4.00 
+-base:0x10000 
+-entry:DriverEntry@8 
+-out:..\bin\i386\free\hooksys.sys 
+obj\i386\hooksys.obj 
+D:\DDK40\lib\i386\free\int64.lib 
+D:\DDK40\lib\i386\free\ntoskrnl.lib 
+D:\DDK40\lib\i386\free\hal.lib 
+
+Stop. 

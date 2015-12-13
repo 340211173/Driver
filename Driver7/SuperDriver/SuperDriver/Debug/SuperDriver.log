@@ -1,0 +1,22 @@
+﻿Построение начато 07.12.2015 17:38:46.
+     1>Проект "C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\SuperDriver\SuperDriver.vcxproj" в узле 2 (целевые объекты build).
+     1>InitializeBuildStatus:
+         Создание "Debug\SuperDriver.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\WinDDK\7600.16385.1\inc\api /IC:\WinDDK\7600.16385.1\inc\crt /IC:\WinDDK\7600.16385.1\inc\ddk /Zi /nologo /W3 /WX- /Od /Oy- /D _X86_ /D DBG /D _WINDLL /D _MBCS /Gm /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gz /TP /analyze- /errorReport:prompt Driverrr.cpp
+         Driverrr.cpp
+     1>Driverrr.cpp(56): warning C4101: pvWaitEvents: неиспользованная локальная переменная
+     1>Driverrr.cpp(57): warning C4101: oaUserEvent: неиспользованная локальная переменная
+     1>Driverrr.cpp(220): warning C4101: buff: неиспользованная локальная переменная
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\Debug\SuperDriver.dll) не соответствует значению свойства выходного файла (C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\Debug\SuperDriver.sys) для Linker. Это может привести к неправильному построению проекта. Чтобы исправить это, убедитесь, что значения свойств $(OutDir), $(TargetName) и $(TargetExt) соответствуют значению, указанному в %(Link.OutputFile).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(991,5): warning MSB8012: TargetExt(.dll) не соответствует значению свойства выходного файла (.sys) для Linker. Это может привести к неправильному построению проекта. Чтобы исправить это, убедитесь, что значения свойств $(OutDir), $(TargetName) и $(TargetExt) соответствуют значению, указанному в %(Link.OutputFile).
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\Debug\SuperDriver.sys" /INCREMENTAL /NOLOGO C:\WinDDK\7600.16385.1\lib\wxp\i386\hal.lib C:\WinDDK\7600.16385.1\lib\wxp\i386\ntoskrnl.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB /MANIFEST:NO /DEBUG /PDB:"C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\Debug\SuperDriver.pdb" /SUBSYSTEM:NATIVE /Driver /TLBID:1 /ENTRY:"DriverEntry" /BASE:"0x10000" /IMPLIB:"C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\Debug\SuperDriver.lib" /MACHINE:X86 /DLL Debug\Driverrr.obj
+     1>LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/RELEASE"
+     1>Driverrr.obj : error LNK2019: ссылка на неразрешенный внешний символ "__declspec(dllimport) long __stdcall ZwQuerySystemInformation(enum _SYSTEM_INFORMATION_CLASS,void *,unsigned long,unsigned long *)" (__imp_?ZwQuerySystemInformation@@YGJW4_SYSTEM_INFORMATION_CLASS@@PAXKPAK@Z) в функции "unsigned char __stdcall FindProcess(char * const)" (?FindProcess@@YGEQAD@Z)
+     1>C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\Debug\SuperDriver.sys : fatal error LNK1120: 1 неразрешенных внешних элементов
+     1>Построение проекта "C:\Documents and Settings\Администратор\Мои документы\Visual Studio 2010\Projects\SuperDriver\SuperDriver\SuperDriver.vcxproj" завершено (целевые объекты build) с ошибкой.
+
+СБОЙ построения.
+
+Затраченное время: 00:00:01

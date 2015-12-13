@@ -1,0 +1,5 @@
+TARGETNAME=hooksys
+TARGETPATH=..\bin
+TARGETTYPE=DRIVER
+
+SOURCES=hooksys.c

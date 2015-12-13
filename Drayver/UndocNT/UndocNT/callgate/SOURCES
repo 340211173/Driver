@@ -1,0 +1,5 @@
+TARGETNAME=callgate
+TARGETPATH=..\bin
+TARGETTYPE=DRIVER
+
+SOURCES=callgate.c 

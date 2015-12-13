@@ -1,0 +1,4 @@
+TARGETNAME=extnddrv
+TARGETPATH=..\bin
+TARGETTYPE=DRIVER
+SOURCES=extnddrv.c

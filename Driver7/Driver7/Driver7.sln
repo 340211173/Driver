@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Driver7", "Driver7\Driver7.vcxproj", "{F2C92E0F-010C-411B-BB0A-3741F264192C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2C92E0F-010C-411B-BB0A-3741F264192C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F2C92E0F-010C-411B-BB0A-3741F264192C}.Debug|Win32.Build.0 = Debug|Win32
+		{F2C92E0F-010C-411B-BB0A-3741F264192C}.Release|Win32.ActiveCfg = Release|Win32
+		{F2C92E0F-010C-411B-BB0A-3741F264192C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

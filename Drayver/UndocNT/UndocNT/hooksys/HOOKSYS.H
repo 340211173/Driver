@@ -1,0 +1,2 @@
+#define FILE_DEVICE_HOOKSYS  0x00008300
+#define DRIVER_DEVICE_NAME   L"hooksys"

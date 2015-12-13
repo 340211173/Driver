@@ -1,0 +1,3 @@
+EXPORTS
+	_CreateCallGate@12
+	_FreeCallGate@4

@@ -1,0 +1,5 @@
+TARGETNAME=hookint
+TARGETPATH=..\bin
+TARGETTYPE=DRIVER
+
+SOURCES=hookint.c

@@ -1,0 +1,20 @@
+ALPHA_OBJECTS= \
+    $(_OBJ_DIR)\alpha\extnddrv.obj
+
+PASS0_ALPHA_OBJECTS=
+
+MIPS_OBJECTS= \
+    $(_OBJ_DIR)\mips\extnddrv.obj
+
+PASS0_MIPS_OBJECTS=
+
+386_OBJECTS= \
+    $(_OBJ_DIR)\i386\extnddrv.obj
+
+PASS0_386_OBJECTS=
+
+PPC_OBJECTS= \
+    $(_OBJ_DIR)\ppc\extnddrv.obj
+
+PASS0_PPC_OBJECTS=
+

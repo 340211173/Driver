@@ -1,0 +1,5 @@
+TARGETNAME=pagedirdrv
+TARGETPATH=..\bin
+TARGETTYPE=DRIVER
+
+SOURCES=pagedirdrv.c
