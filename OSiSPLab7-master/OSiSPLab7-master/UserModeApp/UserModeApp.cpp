@@ -46,14 +46,15 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	EnableDebugPrivilege(TRUE);
 	hDriverFile = CreateFile(
-			TEXT("\\\\.\\DriverExample"),
+			TEXT("\objchk_wxp_x86\i386\DriverExample.sys"),
 			GENERIC_READ | GENERIC_WRITE, 
 			FILE_SHARE_READ | FILE_SHARE_WRITE,
 			0,                     // Default security
 			OPEN_EXISTING,
 			0,                     // Perform synchronous I/O
 			0);                    // No template
-
+	if (!hDriverFile)
+		std::cout << "Ne-a";
 	hEvent = OpenEvent(SYNCHRONIZE, FALSE, TEXT("ProcessEvent") );
 	if (hEvent == INVALID_HANDLE_VALUE)
 	{

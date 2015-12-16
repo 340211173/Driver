@@ -1,23 +1,5 @@
 #include "stdafx.h"
 
-/*
-	DriverExample - Main file
-	This file contains a very simple implementation of a WDM driver. Note that it does not support all
-	WDM functionality, or any functionality sufficient for practical use. The only thing this driver does
-	perfectly, is loading and unloading.
-
-	To install the driver, go to Control Panel -> Add Hardware Wizard, then select "Add a new hardware device".
-	Select "manually select from list", choose device category, press "Have Disk" and enter the path to your
-	INF file.
-	Note that not all device types (specified as Class in INF file) can be installed that way.
-
-	To start/stop this driver, use Windows Device Manager (enable/disable device command).
-
-	If you want to speed up your driver development, it is recommended to see the BazisLib library, that
-	contains convenient classes for standard device types, as well as a more powerful version of the driver
-	wizard. To get information about BazisLib, see its website:
-		http://bazislib.sysprogs.org/ cdsdf sd
-*/
 #define FILE_DEVICE_UNKNOWN             0x00000022
 #define IOCTL_UNKNOWN_BASE              FILE_DEVICE_UNKNOWN
 #define IOCTL_PROCOBSRV_GET_PROCINFO    \

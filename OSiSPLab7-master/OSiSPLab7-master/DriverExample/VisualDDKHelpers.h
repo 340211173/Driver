@@ -1,18 +1,9 @@
 #pragma once
 
-/*!	\file 
-	\brief Contains definitions making handles and NTSTATUS variables recognizable by debugger
-	This file contains definitions for special helper structures and enums, so NTSTATUS and HANDLE
-	variables will not appear in debugger as "unsigned long" and "void *".
-	
-	Once the variable type is recognized correctly, VisualDDK can display additional information
-	about this types, such as translated NTSTATUS code and object referenced by handle.
-*/
-
 #ifdef _DEBUG
 
 #include <excpt.h>
-#include <ntdef.h>
+#include "ntdef.h"
 
 typedef enum NTSTATUS_VisualDDK_Helper {} NTSTATUS_VisualDDK_Helper_t;
 C_ASSERT(sizeof(NTSTATUS_VisualDDK_Helper_t) == sizeof(NTSTATUS));

@@ -62,7 +62,7 @@
       <SubSystem>Native</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName).sys</OutputFile>
-      <AdditionalDependencies>C:\WinDDK\7600.16385.1\lib\wxp\i386\hal.lib;C:\WinDDK\7600.16385.1\lib\wxp\i386\ntoskrnl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\WinDDK\7600.16385.1\lib\wxp\i386\hal.lib;C:\WinDDK\7600.16385.1\lib\wxp\i386\ntoskrnl.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <Driver>Driver</Driver>
       <EntryPointSymbol>DriverEntry</EntryPointSymbol>

@@ -1,0 +1,41 @@
+﻿Построение начато 14.12.2015 0:34:26.
+     1>Проект "C:\Driver\OSiSPLab7-master\OSiSPLab7-master\DriverExample\DriverExample.vcxproj" в узле 2 (целевые объекты build).
+     1>Build:
+         call C:\WinDDK\7600.16385.1\bin\setenv.bat C:\WinDDK\7600.16385.1 chk wxp
+         cd /d C:\Driver\OSiSPLab7-master\OSiSPLab7-master\DriverExample\
+         build
+         Launching OACR monitor
+         OACR NOTE : Not starting monitor (oacr running in job that doesn't allow break-away)
+         path contains nonexistant c:\program files\microsoft visual studio 10.0\common7\tools\bin, removing
+         path contains nonexistant c:\windows\syswow64, removing
+         BUILD: Compile and Link for x86
+         
+         BUILD: Loading c:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Computing Include file dependencies:
+         
+         BUILD: Start time: Mon Dec 14 00:34:26 2015
+         BUILD: Examining c:\driver\osisplab7-master\osisplab7-master\driverexample directory for files to compile.
+         
+             c:\driver\osisplab7-master\osisplab7-master\driverexample 
+         
+         Invalidating OACR warning log for 'root:x86chk'
+         BUILD: Saving c:\winddk\7600.16385.1\build.dat...
+         
+         BUILD: Compiling and Linking c:\driver\osisplab7-master\osisplab7-master\driverexample directory
+         
+         Configuring OACR for 'root:x86chk' - <OACR on>
+         OACR NOTE : Not starting monitor (oacr.dll running in job that doesn't allow break-away)
+         _NT_TARGET_VERSION SET TO WINXP
+         BUILD: Finish time: Mon Dec 14 00:34:27 2015
+         BUILD: Done
+         
+         
+         
+             0 files compiled - 2 Warnings
+         
+     1>Построение проекта "C:\Driver\OSiSPLab7-master\OSiSPLab7-master\DriverExample\DriverExample.vcxproj" завершено (целевые объекты build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:01.37

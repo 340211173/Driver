@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DriverExample", "DriverExample.vcproj", "{65A5C59D-9749-4557-901B-FE45ECAF8E0A}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DriverExample", "DriverExample.vcxproj", "{65A5C59D-9749-4557-901B-FE45ECAF8E0A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserModeApp", "..\UserModeApp\UserModeApp.vcproj", "{E7303201-1946-45F2-9264-AE4A5EEEEDE2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UserModeApp", "..\UserModeApp\UserModeApp.vcxproj", "{E7303201-1946-45F2-9264-AE4A5EEEEDE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

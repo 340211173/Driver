@@ -75,13 +75,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Администратор\Рабочий стол\7 лаба\StartDriver\StartDriver\stdafx.cpp" />
     <ClCompile Include="DriverStrt.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Администратор\Рабочий стол\7 лаба\StartDriver\StartDriver\ioctl.h" />
-    <ClInclude Include="..\..\..\..\..\..\Администратор\Рабочий стол\7 лаба\StartDriver\StartDriver\stdafx.h" />
-    <ClInclude Include="..\..\..\..\..\..\Администратор\Рабочий стол\7 лаба\StartDriver\StartDriver\targetver.h" />
+    <ClInclude Include="ioctl.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -38,7 +38,7 @@ typedef VOID* LPVOID;
 #define STATUS_INFO_LENGTH_MISMATCH ((NTSTATUS)0xC0000004L) //код ошибки, которую возвращает ZwQuerySystemInformation
 //если вдруг ей нехватает выделенного буффера
 //в таком случае надо выделить бефер побольше
-#define SystemProcessesAndThreadsInformation 5 // тупо тип вывода(отображения) инфы
+//#define SystemProcessesAndThreadsInformation 5 // тупо тип вывода(отображения) инфы
 
 
 
