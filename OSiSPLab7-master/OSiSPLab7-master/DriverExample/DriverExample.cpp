@@ -2,12 +2,11 @@
 
 #define FILE_DEVICE_UNKNOWN             0x00000022
 #define IOCTL_UNKNOWN_BASE              FILE_DEVICE_UNKNOWN
-#define IOCTL_PROCOBSRV_GET_PROCINFO    \
-	CTL_CODE(IOCTL_UNKNOWN_BASE, 0x0801, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
+#define IOCTL_PROCOBSRV_GET_PROCINFO    CTL_CODE(IOCTL_UNKNOWN_BASE, 0x0801, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
 
 
 void DriverExampleUnload(IN PDRIVER_OBJECT DriverObject);
-NTSTATUS DriverExampleDispatchIoctl(	IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp	);
+NTSTATUS DriverExampleDispatchIoctl(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp);
 NTSTATUS DriverExampleCreateClose(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp);
 NTSTATUS DriverExampleDefaultHandler(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp);
 NTSTATUS DriverExampleAddDevice(IN PDRIVER_OBJECT  DriverObject, IN PDEVICE_OBJECT  PhysicalDeviceObject);
@@ -79,6 +78,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING  Registr
 
 void NotifyRoutine(IN HANDLE ParentId,IN HANDLE ProcessId,IN BOOLEAN Create)
 {
+	DbgPrint("Enter NotifyRoutine\n");
 	PDriverExample_DEVICE_EXTENSION extension;
 	extension = (PDriverExample_DEVICE_EXTENSION)g_pDeviceObject->DeviceExtension;
 	
@@ -96,34 +96,41 @@ void NotifyRoutine(IN HANDLE ParentId,IN HANDLE ProcessId,IN BOOLEAN Create)
 	{
 		DbgPrint("NotifyRoutine: process was closed");
 	}
+	DbgPrint("NotifyRoutine exit\n");
 }
 
 void DriverExampleUnload(IN PDRIVER_OBJECT DriverObject)
 {
-	if(init) PsSetCreateProcessNotifyRoutine(NotifyRoutine, TRUE);
+	if(init) 
+		PsSetCreateProcessNotifyRoutine(NotifyRoutine, TRUE);
 	init = FALSE;
 	DbgPrint("Goodbye from DriverExample!\n");
 }
 
 NTSTATUS DriverExampleCreateClose(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 {
+	DbgPrint("Enter CreateClose\n");
 	Irp->IoStatus.Status = STATUS_SUCCESS;
 	Irp->IoStatus.Information = 0;
 	IoCompleteRequest(Irp, IO_NO_INCREMENT);
+	DbgPrint("Exit CreateClose \n");
 	return STATUS_SUCCESS;
 }
 
 NTSTATUS DriverExampleDefaultHandler(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 {
+	DbgPrint("Enter DefaultHandler\n");
 	PDriverExample_DEVICE_EXTENSION deviceExtension = NULL;
 	
 	IoSkipCurrentIrpStackLocation(Irp);
 	deviceExtension = (PDriverExample_DEVICE_EXTENSION) DeviceObject->DeviceExtension;
+	DbgPrint("Exit DefaultHandler\n");
 	return IoCallDriver(deviceExtension->TargetDeviceObject, Irp);
 }
 
 NTSTATUS DriverExampleAddDevice(IN PDRIVER_OBJECT  DriverObject, IN PDEVICE_OBJECT  PhysicalDeviceObject)
 {
+	DbgPrint("Enter AddDevice\n");
 	PDEVICE_OBJECT DeviceObject = NULL;
 	PDriverExample_DEVICE_EXTENSION pExtension = NULL;
 	NTSTATUS status;
@@ -148,8 +155,10 @@ NTSTATUS DriverExampleAddDevice(IN PDRIVER_OBJECT  DriverObject, IN PDEVICE_OBJE
     status = IoCreateSymbolicLink(&uszDeviceString, &uszDriverString);
 
 	if (!NT_SUCCESS(status))
+	{
+		DbgPrint("Not success status \n");
 		return status;
-
+	}
 	g_pDeviceObject = DeviceObject; //Save Device object
 
 	pExtension = (PDriverExample_DEVICE_EXTENSION)DeviceObject->DeviceExtension;
@@ -164,20 +173,15 @@ NTSTATUS DriverExampleAddDevice(IN PDRIVER_OBJECT  DriverObject, IN PDEVICE_OBJE
 	UNICODE_STRING uszProcessEventString;
 	HANDLE hProcessHandle;
 
-	RtlInitUnicodeString(
-		&uszProcessEventString, 
-		L"\\BaseNamedObjects\\ProcessEvent"
-		);
-    pExtension->ProcessEvent = IoCreateNotificationEvent(
-		&uszProcessEventString, 
-		&hProcessHandle
-		);
+	RtlInitUnicodeString(&uszProcessEventString,L"\\BaseNamedObjects\\ProcessEvent");
+    pExtension->ProcessEvent = IoCreateNotificationEvent(&uszProcessEventString,	&hProcessHandle);
 	//
     // Clear it out
 	//
     KeClearEvent(pExtension->ProcessEvent);
 
 	DeviceObject->Flags &= ~DO_DEVICE_INITIALIZING;
+	DbgPrint("Exit AddDevice \n");
 	return STATUS_SUCCESS;
 }
 
@@ -188,21 +192,20 @@ NTSTATUS DriverExampleIrpCompletion(
 					  IN PVOID Context
 					  )
 {
+	DbgPrint("Enter IrpCompletion\n");
 	PKEVENT Event = (PKEVENT) Context;
 
 	UNREFERENCED_PARAMETER(DeviceObject);
 	UNREFERENCED_PARAMETER(Irp);
 
 	KeSetEvent(Event, IO_NO_INCREMENT, FALSE);
-
+	DbgPrint("Exit IrpCompletion \n");
 	return(STATUS_MORE_PROCESSING_REQUIRED);
 }
 
-NTSTATUS DriverExampleForwardIrpSynchronous(
-							  IN PDEVICE_OBJECT DeviceObject,
-							  IN PIRP Irp
-							  )
+NTSTATUS DriverExampleForwardIrpSynchronous(IN PDEVICE_OBJECT DeviceObject,IN PIRP Irp)
 {
+	DbgPrint("Enter ForwardIrpSync\n");
 	PDriverExample_DEVICE_EXTENSION   deviceExtension;
 	KEVENT event;
 	NTSTATUS status;
@@ -220,11 +223,13 @@ NTSTATUS DriverExampleForwardIrpSynchronous(
 		KeWaitForSingleObject(&event, Executive, KernelMode, FALSE, NULL);
 		status = Irp->IoStatus.Status;
 	}
+	DbgPrint("Exit IrpSync\n");
 	return status;
 }
 
 NTSTATUS DriverExamplePnP(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 {
+	DbgPrint("Enter PnP\n");
 	PIO_STACK_LOCATION irpSp = IoGetCurrentIrpStackLocation(Irp);
 	PDriverExample_DEVICE_EXTENSION pExt = ((PDriverExample_DEVICE_EXTENSION)DeviceObject->DeviceExtension);
 	NTSTATUS status;
@@ -260,14 +265,13 @@ NTSTATUS DriverExamplePnP(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp)
 		IoCompleteRequest(Irp, IO_NO_INCREMENT);
 		return status;
 	}
+	DbgPrint("Exit PnP\n");
 	return DriverExampleDefaultHandler(DeviceObject, Irp);
 }
 
-NTSTATUS DriverExampleDispatchIoctl(
-	IN PDEVICE_OBJECT DeviceObject, 
-	IN PIRP           Irp
-	)
+NTSTATUS DriverExampleDispatchIoctl(IN PDEVICE_OBJECT DeviceObject,IN PIRP Irp)
 {
+	DbgPrint("Enter DispatchIoctl\n");
     NTSTATUS               ntStatus = STATUS_UNSUCCESSFUL;
     PIO_STACK_LOCATION     irpStack  = IoGetCurrentIrpStackLocation(Irp);//получения указателя на стек IRP пакета используется функция:
     PDriverExample_DEVICE_EXTENSION      extension = (PDriverExample_DEVICE_EXTENSION)DeviceObject->DeviceExtension;
@@ -308,6 +312,7 @@ NTSTATUS DriverExampleDispatchIoctl(
         Irp->IoStatus.Information = 0;
 
     IoCompleteRequest(Irp, IO_NO_INCREMENT);
+	DbgPrint("Exit DispatchIoctl \n");
     return ntStatus;
 }
 

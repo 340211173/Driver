@@ -1,31 +1,37 @@
-﻿Построение начато 14.12.2015 0:45:03.
-     1>Проект "C:\Driver\OSiSPLab7-master\OSiSPLab7-master\UserModeApp\UserModeApp.vcxproj" в узле 2 (целевые объекты build).
-     1>InitializeBuildStatus:
+﻿Построение начато 17.12.2015 8:09:41.
+     1>Проект "C:\Driver\OSiSPLab7-master\OSiSPLab7-master\UserModeApp\UserModeApp.vcxproj" в узле 2 (целевые объекты rebuild).
+     1>_PrepareForClean:
+         Файл "Debug\UserModeApp.lastbuildstate" удаляется.
+       InitializeBuildStatus:
          Создание "Debug\UserModeApp.unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
-         Для всех выходных данных обновления не требуется.
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\UserModeApp.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\UserModeApp.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt UserModeApp.cpp
          UserModeApp.cpp
-     1>c:\driver\osisplab7-master\osisplab7-master\usermodeapp\usermodeapp.cpp(49): warning C4129: o: неизвестная escape-последовательность
-     1>c:\driver\osisplab7-master\osisplab7-master\usermodeapp\usermodeapp.cpp(49): warning C4129: i: неизвестная escape-последовательность
-     1>c:\driver\osisplab7-master\osisplab7-master\usermodeapp\usermodeapp.cpp(49): warning C4129: D: неизвестная escape-последовательность
+     1>c:\driver\osisplab7-master\osisplab7-master\usermodeapp\usermodeapp.cpp(48): warning C4129: o: неизвестная escape-последовательность
+     1>c:\driver\osisplab7-master\osisplab7-master\usermodeapp\usermodeapp.cpp(48): warning C4129: i: неизвестная escape-последовательность
+     1>c:\driver\osisplab7-master\osisplab7-master\usermodeapp\usermodeapp.cpp(48): warning C4129: D: неизвестная escape-последовательность
        ManifestResourceCompile:
-         Для всех выходных данных обновления не требуется.
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\UserModeApp.exe.embed.manifest.res" Debug\UserModeApp_manifest.rc 
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\Администратор\Рабочий стол\MyDriver\Debug\UserModeApp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\UserModeApp.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\Администратор\Рабочий стол\MyDriver\Debug\UserModeApp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\Администратор\Рабочий стол\MyDriver\Debug\UserModeApp.lib" /MACHINE:X86 Debug\UserModeApp.exe.embed.manifest.res
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Driver\MyDriver\Debug\UserModeApp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\UserModeApp.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Driver\MyDriver\Debug\UserModeApp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Driver\MyDriver\Debug\UserModeApp.lib" /MACHINE:X86 Debug\UserModeApp.exe.embed.manifest.res
          Debug\stdafx.obj
          Debug\UserModeApp.obj
        Manifest:
+         Файл "Debug\UserModeApp.exe.embed.manifest" удаляется.
          C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\UserModeApp.exe.embed.manifest" /manifest Debug\UserModeApp.exe.intermediate.manifest
-         Для всех выходных данных обновления не требуется.
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\UserModeApp.exe.embed.manifest.res" Debug\UserModeApp_manifest.rc 
        LinkEmbedManifest:
-         Для всех выходных данных обновления не требуется.
-         UserModeApp.vcxproj -> C:\Documents and Settings\Администратор\Рабочий стол\MyDriver\Debug\UserModeApp.exe
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Driver\MyDriver\Debug\UserModeApp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\UserModeApp.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Driver\MyDriver\Debug\UserModeApp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Driver\MyDriver\Debug\UserModeApp.lib" /MACHINE:X86 Debug\UserModeApp.exe.embed.manifest.res
+         Debug\stdafx.obj
+         Debug\UserModeApp.obj
+         UserModeApp.vcxproj -> C:\Driver\MyDriver\Debug\UserModeApp.exe
        FinalizeBuildStatus:
          Файл "Debug\UserModeApp.unsuccessfulbuild" удаляется.
          Обращение к "Debug\UserModeApp.lastbuildstate".
-     1>Построение проекта "C:\Driver\OSiSPLab7-master\OSiSPLab7-master\UserModeApp\UserModeApp.vcxproj" завершено (целевые объекты build).
+     1>Построение проекта "C:\Driver\OSiSPLab7-master\OSiSPLab7-master\UserModeApp\UserModeApp.vcxproj" завершено (целевые объекты rebuild).
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:00.71
+Затраченное время: 00:00:23.75

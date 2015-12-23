@@ -7,8 +7,7 @@
 
 #define FILE_DEVICE_UNKNOWN             0x00000022
 #define IOCTL_UNKNOWN_BASE              FILE_DEVICE_UNKNOWN
-#define IOCTL_PROCOBSRV_GET_PROCINFO    \
-	CTL_CODE(IOCTL_UNKNOWN_BASE, 0x0801, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
+#define IOCTL_PROCOBSRV_GET_PROCINFO    CTL_CODE(IOCTL_UNKNOWN_BASE, 0x0801, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
 
 
 typedef struct _ProcessCallbackInfo
@@ -47,14 +46,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	EnableDebugPrivilege(TRUE);
 	hDriverFile = CreateFile(
 			TEXT("\objchk_wxp_x86\i386\DriverExample.sys"),
-			GENERIC_READ | GENERIC_WRITE, 
-			FILE_SHARE_READ | FILE_SHARE_WRITE,
+			GENERIC_READ, 
+			FILE_SHARE_READ,
 			0,                     // Default security
 			OPEN_EXISTING,
 			0,                     // Perform synchronous I/O
 			0);                    // No template
+	
 	if (!hDriverFile)
 		std::cout << "Ne-a";
+
 	hEvent = OpenEvent(SYNCHRONIZE, FALSE, TEXT("ProcessEvent") );
 	if (hEvent == INVALID_HANDLE_VALUE)
 	{
@@ -62,13 +63,13 @@ int _tmain(int argc, _TCHAR* argv[])
 		return 0;
 	}
 
-	OVERLAPPED  ov          = { 0 };
+	OVERLAPPED  ov = { 0 };
 	DWORD       dwBytesReturned;
 	PROCESS_CALLBACK_INFO  callbackInfo;
 	TCHAR szFileName[MAX_PATH];
 	while (true)
 	{
-		SwitchToThread(); //Переключитесь На Нить
+		SwitchToThread(); 
 		WaitForSingleObject (hEvent,INFINITE);
 		DeviceIoControl(//Функция DeviceIoControl отправляет управляющий код непосредственно указанному драйверу устройства, заставляя соответствующее устройство выполнить соответствующую операцию.
 			hDriverFile,
@@ -80,7 +81,6 @@ int _tmain(int argc, _TCHAR* argv[])
 			&ov
 			);
 
-		
 		GetOverlappedResult( //будет дожидаться завершения выполнения операции 
 			hDriverFile, 
 			&ov,
@@ -93,10 +93,10 @@ int _tmain(int argc, _TCHAR* argv[])
 				FALSE,
 				callbackInfo.hProcessId 
 			);
+
 		Sleep(1000);
 		GetModuleFileNameEx(Handle, 0, szFileName, MAX_PATH);
 			
-
 		if (!wcscmp(szFileName,TEXT("C:\\WINDOWS\\system32\\notepad.exe")))   
 		{
 			if (callbackInfo.bCreate == TRUE)
@@ -119,12 +119,10 @@ int _tmain(int argc, _TCHAR* argv[])
 
 				CreateProcess(applicationPath, commandLine, 
 					&saProcess, &saThread, FALSE, 0, NULL, NULL, &startupInfo, &piProcess);
-				openedProcesses.insert ( std::pair<DWORD,HANDLE>(callbackInfo.hProcessId ,piProcess.hProcess) );
-				
+				openedProcesses.insert ( std::pair<DWORD,HANDLE>(callbackInfo.hProcessId ,piProcess.hProcess) );				
 			}
 			else
 			{
-
 				std::map<DWORD,HANDLE>::iterator iter = openedProcesses.find(callbackInfo.hProcessId);
 				if(iter != openedProcesses.end())
 				{
@@ -134,8 +132,6 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 		}
         CloseHandle(Handle);
-
-		
 	}
 	return 0;
 }
